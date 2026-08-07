@@ -3,24 +3,46 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ali &amp; Nilufar - To'y taklifnomasi</title>
+  <title>Ibrohim &amp; Barnoxon - To'y taklifnomasi</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500;1,600&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <audio id="bg-music" src="audio/background-music.mp3" loop></audio>
+  <audio id="bg-music" loop>
+    <source src="audio/background-music.m4a" type="audio/mp4">
+  </audio>
   <button id="music-toggle" class="music-toggle" type="button" aria-label="Musiqani yoqish/o'chirish">🎵</button>
   <main>
     <section id="hero" class="section hero">
-      <div class="hero-decor hero-decor-top">🌸</div>
-      <div class="hero-decor hero-decor-bottom">🌸</div>
+      <svg class="hero-arch" viewBox="0 0 300 190" aria-hidden="true">
+        <defs>
+          <linearGradient id="archGrad" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0" stop-color="#C89B3C"/>
+            <stop offset="1" stop-color="#BE6242"/>
+          </linearGradient>
+        </defs>
+        <path class="hero-arch-path" d="M14,188 L14,86 A136,136 0 0,1 286,86 L286,188" />
+      </svg>
+      <div class="petals" aria-hidden="true">
+        <span class="petal">🌸</span>
+        <span class="petal">🌸</span>
+        <span class="petal">🌸</span>
+        <span class="petal">🌸</span>
+        <span class="petal">🌸</span>
+      </div>
       <p class="label">TO'Y TAKLIFNOMASI</p>
-      <h1 class="couple-names">Ali &amp; Nilufar</h1>
-      <p class="hero-date">15 &middot; SENTABR &middot; 2026</p>
-      <div class="scroll-hint">PASTGA SURING &darr;</div>
+      <h1 class="couple-names">Ibrohim <span class="amp">&amp;</span> Barnoxon</h1>
+      <p class="hero-date">11 &middot; SENTABR &middot; 2026</p>
+      <div class="scroll-hint">PASTGA SURING <span class="scroll-arrow">&darr;</span></div>
     </section>
-    <section id="countdown-section" class="section countdown-section">
+
+    <div class="divider" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span></div>
+
+    <section id="countdown-section" class="section countdown-section reveal">
       <p class="label">TO'YIMIZGACHA QOLDI</p>
-      <p class="countdown-fallback" id="countdown-fallback">15 sentabr 2026</p>
+      <p class="countdown-fallback" id="countdown-fallback">11 sentabr 2026</p>
       <div class="countdown" id="countdown-timer" hidden>
         <div class="countdown-item">
           <span class="countdown-value" id="countdown-days">00</span>
@@ -41,7 +63,10 @@
       </div>
       <p class="countdown-message" id="countdown-message" hidden>Baxtli kunimiz keldi! 🎉</p>
     </section>
-    <section id="program" class="section program-section">
+
+    <div class="divider" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span></div>
+
+    <section id="program" class="section program-section reveal">
       <p class="label">KUN TARTIBI</p>
       <h2 class="section-title">Dastur</h2>
       <div class="timeline">
@@ -63,14 +88,17 @@
         </div>
       </div>
     </section>
-    <section id="location" class="section location-section">
+
+    <div class="divider" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span></div>
+
+    <section id="location" class="section location-section reveal">
       <p class="label">TO'Y ZALI</p>
       <h2 class="section-title">Manzil</h2>
-      <p class="location-name">"Bog'i Rayhon" to'y zali</p>
-      <p class="location-address">Toshkent sh., Yunusobod tumani, Amir Temur ko'chasi 45</p>
+      <p class="location-name">"Dilshoda" to'yxonasi</p>
+      <p class="location-address">Xaritada belgilangan manzil bo'yicha</p>
       <div class="map-embed">
         <iframe
-          src="https://www.google.com/maps?q=Toshkent+Amir+Temur+45&output=embed"
+          src="https://yandex.uz/map-widget/v1/?ll=65.970182%2C40.029042&z=17&pt=65.970182,40.029042,pm2rdm"
           width="100%"
           height="250"
           style="border:0"
@@ -78,9 +106,12 @@
           referrerpolicy="no-referrer-when-downgrade">
         </iframe>
       </div>
-      <a class="button" href="https://maps.google.com/?q=Toshkent+Amir+Temur+45" target="_blank" rel="noopener">Yo'nalishni ochish</a>
+      <a class="button" href="https://yandex.uz/maps/org/228351531215/gallery/?ll=65.970182%2C40.029042&z=19" target="_blank" rel="noopener">Yo'nalishni ochish</a>
     </section>
-    <section id="gallery" class="section gallery-section">
+
+    <div class="divider" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span></div>
+
+    <section id="gallery" class="section gallery-section reveal">
       <p class="label">XOTIRALAR</p>
       <h2 class="section-title">Galereya</h2>
       <div class="gallery-grid">
@@ -90,7 +121,10 @@
         <img class="gallery-image" src="images/gallery-4.svg" alt="Juftlik surati 4" loading="lazy">
       </div>
     </section>
-    <section id="gift" class="section gift-section">
+
+    <div class="divider" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span></div>
+
+    <section id="gift" class="section gift-section reveal">
       <p class="label">SOVG'A</p>
       <h2 class="section-title">Sovg'a</h2>
       <p class="gift-text">Tabriklaringiz biz uchun eng katta sovg'a. Agar moddiy sovg'a berishni istasangiz, quyidagi karta raqamidan foydalanishingiz mumkin:</p>
@@ -99,7 +133,10 @@
         <button class="button gift-copy-button" id="gift-copy-button" type="button">Nusxalash</button>
       </div>
     </section>
-    <section id="rsvp" class="section rsvp-section">
+
+    <div class="divider" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span></div>
+
+    <section id="rsvp" class="section rsvp-section reveal">
       <p class="label">RSVP</p>
       <h2 class="section-title">Kelishingizni tasdiqlang</h2>
       <p class="rsvp-text">Bayramimizni siz bilan birga nishonlashni orziqib kutamiz!</p>

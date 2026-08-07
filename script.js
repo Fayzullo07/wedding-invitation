@@ -1,5 +1,5 @@
 (function () {
-  var WEDDING_DATE = new Date('2026-09-15T17:00:00+05:00');
+  var WEDDING_DATE = new Date('2026-09-11T17:00:00+05:00');
 
   function pad(num) {
     return String(num).padStart(2, '0');
@@ -30,10 +30,21 @@
     var minutes = Math.floor((totalSeconds % 3600) / 60);
     var seconds = totalSeconds % 60;
 
-    document.getElementById('countdown-days').textContent = pad(days);
-    document.getElementById('countdown-hours').textContent = pad(hours);
-    document.getElementById('countdown-minutes').textContent = pad(minutes);
-    document.getElementById('countdown-seconds').textContent = pad(seconds);
+    setValue('countdown-days', pad(days));
+    setValue('countdown-hours', pad(hours));
+    setValue('countdown-minutes', pad(minutes));
+    setValue('countdown-seconds', pad(seconds));
+  }
+
+  function setValue(id, value) {
+    var el = document.getElementById(id);
+    if (el.textContent === value) {
+      return;
+    }
+    el.textContent = value;
+    el.classList.remove('tick');
+    void el.offsetWidth;
+    el.classList.add('tick');
   }
 
   updateCountdown();
@@ -61,25 +72,76 @@
 
 (function () {
   var PHONE_NUMBER = '998901234567';
-  var MESSAGE = "Assalomu alaykum! Ali va Nilufarning to'yiga kelishimni tasdiqlayman.";
+  var MESSAGE = "Assalomu alaykum! Ibrohim va Barnoxonning to'yiga kelishimni tasdiqlayman.";
 
   var rsvpButton = document.getElementById('rsvp-button');
   rsvpButton.href = 'https://wa.me/' + PHONE_NUMBER + '?text=' + encodeURIComponent(MESSAGE);
 })();
 
 (function () {
+  var revealEls = document.querySelectorAll('.reveal');
+
+  if (!('IntersectionObserver' in window)) {
+    revealEls.forEach(function (el) {
+      el.classList.add('in-view');
+    });
+    return;
+  }
+
+  var observer = new IntersectionObserver(
+    function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('in-view');
+          observer.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.2 }
+  );
+
+  revealEls.forEach(function (el) {
+    observer.observe(el);
+  });
+})();
+
+(function () {
   var music = document.getElementById('bg-music');
   var toggle = document.getElementById('music-toggle');
 
-  toggle.addEventListener('click', function () {
+  function setPlayingUI(isPlaying) {
+    toggle.classList.toggle('playing', isPlaying);
+    toggle.textContent = isPlaying ? '⏸' : '🎵';
+  }
+
+  function tryAutoplay() {
+    music.play().then(function () {
+      setPlayingUI(true);
+    }).catch(function () {
+      var startOnInteraction = function () {
+        music.play().then(function () {
+          setPlayingUI(true);
+        }).catch(function () {});
+        ['click', 'touchstart', 'scroll', 'keydown'].forEach(function (evt) {
+          document.removeEventListener(evt, startOnInteraction);
+        });
+      };
+      ['click', 'touchstart', 'scroll', 'keydown'].forEach(function (evt) {
+        document.addEventListener(evt, startOnInteraction, { once: true, passive: true });
+      });
+    });
+  }
+
+  toggle.addEventListener('click', function (event) {
+    event.stopPropagation();
     if (music.paused) {
       music.play().catch(function () {});
-      toggle.classList.add('playing');
-      toggle.textContent = '⏸';
+      setPlayingUI(true);
     } else {
       music.pause();
-      toggle.classList.remove('playing');
-      toggle.textContent = '🎵';
+      setPlayingUI(false);
     }
   });
+
+  tryAutoplay();
 })();
