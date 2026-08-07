@@ -511,7 +511,10 @@ body.intro-locked {
 }
 
 .intro-open-button {
+  position: relative;
+  z-index: 3;
   margin-top: 18px;
+  background: var(--cream);
 }
 
 /* Music toggle */
