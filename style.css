@@ -156,7 +156,6 @@ body {
 
 .section.photo-bg .label,
 .section.photo-bg .hero-date,
-.section.photo-bg .rsvp-text,
 .section.photo-bg .location-address {
   opacity: 0.9;
 }
@@ -568,15 +567,6 @@ body {
   font-size: 19px;
   letter-spacing: 2px;
   user-select: all;
-}
-
-/* RSVP */
-.rsvp-text {
-  font-family: var(--font-body);
-  font-size: 13px;
-  opacity: 0.8;
-  max-width: 300px;
-  margin-top: 8px;
 }
 
 /* Intro / opening gate */

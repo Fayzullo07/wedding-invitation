@@ -71,14 +71,6 @@
 })();
 
 (function () {
-  var PHONE_NUMBER = '998901234567';
-  var MESSAGE = "Assalomu alaykum! Ibrohim va Barnoxonning to'yiga kelishimni tasdiqlayman.";
-
-  var rsvpButton = document.getElementById('rsvp-button');
-  rsvpButton.href = 'https://wa.me/' + PHONE_NUMBER + '?text=' + encodeURIComponent(MESSAGE);
-})();
-
-(function () {
   function tryPhotoBackground(sectionId, filename) {
     var img = new Image();
     img.onload = function () {
@@ -92,7 +84,6 @@
 
   tryPhotoBackground('hero', 'images/hero-bg.jpg');
   tryPhotoBackground('location', 'images/location-bg.jpg');
-  tryPhotoBackground('rsvp', 'images/closing-bg.jpg');
 })();
 
 (function () {
