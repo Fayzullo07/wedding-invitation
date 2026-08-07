@@ -17,6 +17,7 @@
 
 html {
   scroll-behavior: smooth;
+  scroll-snap-type: y mandatory;
 }
 
 body {
@@ -34,6 +35,8 @@ body {
   padding: 40px 20px;
   text-align: center;
   position: relative;
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
 }
 
 .label {
@@ -560,5 +563,9 @@ body.intro-locked {
   .intro-gate,
   .intro-content {
     transition: none;
+  }
+  html {
+    scroll-snap-type: none;
+    scroll-behavior: auto;
   }
 }
