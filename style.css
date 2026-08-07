@@ -1,0 +1,71 @@
+:root {
+  --color-bg-start: #fdf8f5;
+  --color-bg-end: #f8ece4;
+  --color-text: #5c4a42;
+  --color-accent: #c9a896;
+  --font-serif: Georgia, 'Times New Roman', serif;
+  --font-sans: 'Helvetica Neue', Arial, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-sans);
+  color: var(--color-text);
+  background: linear-gradient(180deg, var(--color-bg-start), var(--color-bg-end));
+}
+
+.section {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 20px;
+  text-align: center;
+  position: relative;
+}
+
+.label {
+  font-size: 11px;
+  letter-spacing: 4px;
+  opacity: 0.55;
+  text-transform: uppercase;
+}
+
+.section-title {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 28px;
+  margin: 8px 0 24px;
+}
+
+.button {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 12px 28px;
+  border: 1px solid var(--color-accent);
+  border-radius: 24px;
+  color: var(--color-text);
+  text-decoration: none;
+  font-size: 12px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  background: none;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.button:hover {
+  background: rgba(201, 168, 150, 0.2);
+}
+
+/* NEXT_STYLES */
