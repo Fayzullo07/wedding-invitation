@@ -517,6 +517,10 @@ body.intro-locked {
   background: var(--cream);
 }
 
+.intro-open-button:hover {
+  background: #f2e1d3;
+}
+
 /* Music toggle */
 .music-toggle {
   position: fixed;
