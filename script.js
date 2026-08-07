@@ -91,6 +91,7 @@
   }
 
   tryPhotoBackground('hero', 'images/hero-bg.jpg');
+  tryPhotoBackground('location', 'images/location-bg.jpg');
   tryPhotoBackground('rsvp', 'images/closing-bg.jpg');
 })();
 

@@ -174,6 +174,15 @@ body {
   background: rgba(253, 243, 231, 0.14);
 }
 
+.section.photo-bg .location-card .button {
+  color: var(--ink);
+  border-color: var(--clay);
+}
+
+.section.photo-bg .location-card .button:hover {
+  background: rgba(190, 98, 66, 0.08);
+}
+
 /* Hero */
 .hero {
   overflow: hidden;
@@ -450,6 +459,52 @@ body {
 }
 
 /* Location */
+.location-pin {
+  position: relative;
+  width: 40px;
+  height: 40px;
+  margin-bottom: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.pin-icon {
+  width: 26px;
+  height: 26px;
+  color: var(--clay);
+  position: relative;
+  z-index: 2;
+  animation: pin-drop 0.7s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+}
+
+.pin-pulse {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: rgba(190, 98, 66, 0.25);
+  animation: pin-radar 2.2s ease-out infinite;
+}
+
+@keyframes pin-drop {
+  from { transform: translateY(-30px); opacity: 0; }
+  to   { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes pin-radar {
+  0%   { transform: scale(0.3); opacity: 0.6; }
+  100% { transform: scale(1.8); opacity: 0; }
+}
+
+.section.photo-bg .pin-icon {
+  color: #ffffff;
+}
+
+.section.photo-bg .pin-pulse {
+  background: rgba(255, 255, 255, 0.35);
+}
+
 .location-name {
   font-family: var(--font-display);
   font-style: italic;
@@ -465,11 +520,24 @@ body {
   max-width: 320px;
 }
 
+.location-card {
+  margin-top: 20px;
+  width: 100%;
+  max-width: 320px;
+  background: #fffaf4;
+  border: 1px solid rgba(200, 155, 60, 0.3);
+  border-radius: 16px;
+  padding: 14px;
+  box-shadow: 0 14px 30px rgba(67, 48, 42, 0.16);
+}
+
+.location-card .button {
+  width: 100%;
+  margin-top: 14px;
+}
+
 .map-embed {
   width: 100%;
-  max-width: 400px;
-  margin-top: 20px;
-  border: 1px solid rgba(200, 155, 60, 0.4);
   border-radius: 8px;
   overflow: hidden;
 }
@@ -661,7 +729,9 @@ body.intro-locked {
   .petal,
   .scroll-arrow,
   .music-toggle.playing,
-  .countdown-value.tick {
+  .countdown-value.tick,
+  .pin-icon,
+  .pin-pulse {
     animation: none !important;
   }
   .hero-arch-path {
