@@ -79,6 +79,22 @@
 })();
 
 (function () {
+  function tryPhotoBackground(sectionId, filename) {
+    var img = new Image();
+    img.onload = function () {
+      var section = document.getElementById(sectionId);
+      section.style.backgroundImage =
+        "linear-gradient(180deg, rgba(20,14,12,0.22), rgba(20,14,12,0.72)), url('" + filename + "')";
+      section.classList.add('photo-bg');
+    };
+    img.src = filename;
+  }
+
+  tryPhotoBackground('hero', 'images/hero-bg.jpg');
+  tryPhotoBackground('rsvp', 'images/closing-bg.jpg');
+})();
+
+(function () {
   var revealEls = document.querySelectorAll('.reveal');
 
   if (!('IntersectionObserver' in window)) {

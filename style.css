@@ -141,6 +141,39 @@ body {
   opacity: 0.6;
 }
 
+/* Photo background — activated by JS only if the couple supplies a real photo */
+.section.photo-bg {
+  color: #fdf3e7;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+.section.photo-bg .section-title,
+.section.photo-bg .couple-names {
+  color: #ffffff;
+}
+
+.section.photo-bg .label,
+.section.photo-bg .hero-date,
+.section.photo-bg .rsvp-text,
+.section.photo-bg .location-address {
+  opacity: 0.9;
+}
+
+.section.photo-bg .scroll-hint {
+  border-color: rgba(253, 243, 231, 0.55);
+}
+
+.section.photo-bg .button {
+  border-color: var(--gold);
+  color: #fdf3e7;
+}
+
+.section.photo-bg .button:hover {
+  background: rgba(253, 243, 231, 0.14);
+}
+
 /* Hero */
 .hero {
   overflow: hidden;
