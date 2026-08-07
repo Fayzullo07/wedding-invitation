@@ -66,3 +66,20 @@
   var rsvpButton = document.getElementById('rsvp-button');
   rsvpButton.href = 'https://wa.me/' + PHONE_NUMBER + '?text=' + encodeURIComponent(MESSAGE);
 })();
+
+(function () {
+  var music = document.getElementById('bg-music');
+  var toggle = document.getElementById('music-toggle');
+
+  toggle.addEventListener('click', function () {
+    if (music.paused) {
+      music.play().catch(function () {});
+      toggle.classList.add('playing');
+      toggle.textContent = '⏸';
+    } else {
+      music.pause();
+      toggle.classList.remove('playing');
+      toggle.textContent = '🎵';
+    }
+  });
+})();
