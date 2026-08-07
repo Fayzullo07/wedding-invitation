@@ -108,40 +108,38 @@
 (function () {
   var music = document.getElementById('bg-music');
   var toggle = document.getElementById('music-toggle');
+  var overlay = document.getElementById('intro-overlay');
+  var openButton = document.getElementById('intro-open');
+
+  document.body.classList.add('intro-locked');
 
   function setPlayingUI(isPlaying) {
     toggle.classList.toggle('playing', isPlaying);
     toggle.textContent = isPlaying ? '⏸' : '🎵';
   }
 
-  function tryAutoplay() {
+  function startMusic() {
     music.play().then(function () {
       setPlayingUI(true);
-    }).catch(function () {
-      var startOnInteraction = function () {
-        music.play().then(function () {
-          setPlayingUI(true);
-        }).catch(function () {});
-        ['click', 'touchstart', 'scroll', 'keydown'].forEach(function (evt) {
-          document.removeEventListener(evt, startOnInteraction);
-        });
-      };
-      ['click', 'touchstart', 'scroll', 'keydown'].forEach(function (evt) {
-        document.addEventListener(evt, startOnInteraction, { once: true, passive: true });
-      });
-    });
+    }).catch(function () {});
   }
 
   toggle.addEventListener('click', function (event) {
     event.stopPropagation();
     if (music.paused) {
-      music.play().catch(function () {});
-      setPlayingUI(true);
+      startMusic();
     } else {
       music.pause();
       setPlayingUI(false);
     }
   });
 
-  tryAutoplay();
+  openButton.addEventListener('click', function () {
+    overlay.classList.add('opening');
+    document.body.classList.remove('intro-locked');
+    startMusic();
+    setTimeout(function () {
+      overlay.setAttribute('hidden', '');
+    }, 1000);
+  });
 })();
