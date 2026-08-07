@@ -277,22 +277,37 @@ body {
 /* Countdown */
 .countdown {
   display: flex;
-  gap: 22px;
-  margin-top: 16px;
+  gap: 12px;
+  margin-top: 20px;
 }
 
 .countdown-item {
   display: flex;
   flex-direction: column;
   align-items: center;
+  width: 74px;
+  background: #fffaf4;
+  border: 1px solid rgba(200, 155, 60, 0.35);
+  border-radius: 12px;
+  box-shadow: 0 10px 22px rgba(67, 48, 42, 0.14);
+  overflow: hidden;
+}
+
+.countdown-item::before {
+  content: '';
+  display: block;
+  width: 100%;
+  height: 6px;
+  background: linear-gradient(90deg, var(--gold), var(--clay));
 }
 
 .countdown-value {
   font-family: var(--font-display);
   font-weight: 600;
-  font-size: 38px;
+  font-size: 32px;
   color: var(--clay);
   display: inline-block;
+  padding: 12px 0 2px;
 }
 
 .countdown-value.tick {
@@ -307,11 +322,16 @@ body {
 
 .countdown-unit {
   font-family: var(--font-body);
-  font-size: 10px;
+  font-size: 9px;
   font-weight: 500;
-  letter-spacing: 1.5px;
+  letter-spacing: 1.2px;
   text-transform: uppercase;
   opacity: 0.6;
+  width: 100%;
+  text-align: center;
+  padding: 6px 0 10px;
+  margin-top: 2px;
+  border-top: 1px dashed rgba(190, 98, 66, 0.3);
 }
 
 .countdown-fallback,
@@ -323,55 +343,110 @@ body {
   margin-top: 16px;
 }
 
-/* Program timeline */
-.timeline {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  gap: 24px;
-  text-align: left;
+/* Date heading + mini dividers */
+.date-big {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 36px;
+  margin: 8px 0 14px;
+  letter-spacing: 1px;
 }
 
-.timeline::before {
-  content: '';
-  position: absolute;
-  left: 4px;
-  top: 6px;
-  bottom: 6px;
-  width: 1px;
-  background: linear-gradient(var(--gold), var(--clay));
+.mini-divider {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--gold);
+}
+
+.mini-divider span:not(.divider-heart) {
+  width: 36px;
+  height: 1px;
+  background: var(--gold);
+  opacity: 0.6;
+}
+
+.divider-heart {
+  font-size: 12px;
+}
+
+.mini-divider-star {
+  margin: 30px 0 6px;
+  color: var(--gold);
+  font-size: 15px;
+}
+
+/* Calendar card */
+.calendar-card {
+  margin-top: 12px;
+  width: 100%;
+  max-width: 300px;
+  background: #fffaf4;
+  border: 1px solid rgba(200, 155, 60, 0.32);
+  border-radius: 16px;
+  padding: 18px 14px 20px;
+  box-shadow: 0 12px 28px rgba(67, 48, 42, 0.12);
+}
+
+.calendar-month {
+  font-family: var(--font-body);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  text-align: center;
+  margin-bottom: 14px;
+  opacity: 0.75;
+}
+
+.calendar-weekdays,
+.calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 4px;
+  text-align: center;
+}
+
+.calendar-weekdays span {
+  font-size: 10px;
+  font-weight: 500;
   opacity: 0.5;
 }
 
-.timeline-item {
-  position: relative;
-  padding-left: 28px;
+.calendar-grid {
+  margin-top: 6px;
+  row-gap: 6px;
 }
 
-.timeline-item::before {
-  content: '';
-  position: absolute;
-  left: 0;
-  top: 5px;
-  width: 9px;
-  height: 9px;
-  background: var(--gold);
-  transform: rotate(45deg);
-  box-shadow: 0 0 0 3px var(--cream);
-}
-
-.timeline-time {
+.calendar-day {
   font-family: var(--font-display);
-  font-weight: 600;
-  font-size: 15px;
-  color: var(--clay);
+  font-size: 13px;
+  aspect-ratio: 1 / 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
 }
 
-.timeline-event {
-  display: block;
+.calendar-day.empty {
+  visibility: hidden;
+}
+
+.calendar-day.highlight {
+  border: 1px solid var(--gold);
+  background: rgba(200, 155, 60, 0.14);
+  color: var(--clay);
+  font-weight: 600;
+}
+
+.calendar-time {
+  margin-top: 18px;
   font-family: var(--font-body);
-  font-size: 13px;
-  opacity: 0.75;
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  opacity: 0.65;
 }
 
 /* Location */
@@ -397,31 +472,6 @@ body {
   border: 1px solid rgba(200, 155, 60, 0.4);
   border-radius: 8px;
   overflow: hidden;
-}
-
-/* Gallery */
-.gallery-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 12px;
-  max-width: 400px;
-  width: 100%;
-  margin-top: 16px;
-}
-
-.gallery-image {
-  width: 100%;
-  aspect-ratio: 1 / 1;
-  object-fit: cover;
-  border-radius: 8px;
-  border: 1px solid rgba(200, 155, 60, 0.4);
-  background: var(--blush);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.gallery-image:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 12px 24px rgba(67, 48, 42, 0.18);
 }
 
 /* Gift */
@@ -565,16 +615,38 @@ body.intro-locked {
   border-radius: 50%;
   border: 1px solid var(--gold);
   background: var(--cream);
-  color: var(--ink);
-  font-size: 18px;
+  color: var(--clay);
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: transform 0.2s ease;
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.music-toggle:hover {
+  transform: scale(1.06);
+  background: #f2e1d3;
+}
+
+.music-icon {
+  width: 17px;
+  height: 17px;
+}
+
+.icon-pause {
+  display: none;
+}
+
+.music-toggle.playing .icon-play {
+  display: none;
+}
+
+.music-toggle.playing .icon-pause {
+  display: block;
 }
 
 .music-toggle.playing {
+  color: var(--jade);
   animation: music-pulse 1.8s ease-out infinite;
 }
 

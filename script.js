@@ -1,5 +1,5 @@
 (function () {
-  var WEDDING_DATE = new Date('2026-09-11T17:00:00+05:00');
+  var WEDDING_DATE = new Date('2026-09-11T19:00:00+05:00');
 
   function pad(num) {
     return String(num).padStart(2, '0');
@@ -131,7 +131,6 @@
 
   function setPlayingUI(isPlaying) {
     toggle.classList.toggle('playing', isPlaying);
-    toggle.textContent = isPlaying ? '⏸' : '🎵';
   }
 
   function startMusic() {
@@ -158,4 +157,36 @@
       overlay.setAttribute('hidden', '');
     }, 1000);
   });
+})();
+
+(function () {
+  var MONTHS_UZ = [
+    'YANVAR', 'FEVRAL', 'MART', 'APREL', 'MAY', 'IYUN',
+    'IYUL', 'AVGUST', 'SENTYABR', 'OKTABR', 'NOYABR', 'DEKABR'
+  ];
+  var YEAR = 2026;
+  var MONTH_INDEX = 8; /* September, 0-based */
+  var WEDDING_DAY = 11;
+
+  var monthLabel = document.getElementById('calendar-month');
+  var grid = document.getElementById('calendar-grid');
+
+  monthLabel.textContent = MONTHS_UZ[MONTH_INDEX] + ' ' + YEAR;
+
+  var firstWeekday = new Date(YEAR, MONTH_INDEX, 1).getDay();
+  var leadingEmpty = (firstWeekday + 6) % 7; /* Monday-first offset */
+  var daysInMonth = new Date(YEAR, MONTH_INDEX + 1, 0).getDate();
+
+  for (var i = 0; i < leadingEmpty; i++) {
+    var empty = document.createElement('span');
+    empty.className = 'calendar-day empty';
+    grid.appendChild(empty);
+  }
+
+  for (var day = 1; day <= daysInMonth; day++) {
+    var cell = document.createElement('span');
+    cell.className = 'calendar-day' + (day === WEDDING_DAY ? ' highlight' : '');
+    cell.textContent = day;
+    grid.appendChild(cell);
+  }
 })();

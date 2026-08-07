@@ -13,7 +13,17 @@
   <audio id="bg-music" loop>
     <source src="audio/background-music.m4a" type="audio/mp4">
   </audio>
-  <button id="music-toggle" class="music-toggle" type="button" aria-label="Musiqani yoqish/o'chirish">🎵</button>
+  <button id="music-toggle" class="music-toggle" type="button" aria-label="Musiqani yoqish/o'chirish">
+    <svg class="music-icon icon-play" viewBox="0 0 24 24" aria-hidden="true">
+      <path d="M9 18V5l10-2v13" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+      <circle cx="6" cy="18" r="3" fill="none" stroke="currentColor" stroke-width="1.7"/>
+      <circle cx="16" cy="16" r="3" fill="none" stroke="currentColor" stroke-width="1.7"/>
+    </svg>
+    <svg class="music-icon icon-pause" viewBox="0 0 24 24" aria-hidden="true">
+      <rect x="6" y="5" width="4" height="14" rx="1.2" fill="currentColor"/>
+      <rect x="14" y="5" width="4" height="14" rx="1.2" fill="currentColor"/>
+    </svg>
+  </button>
 
   <div id="intro-overlay" class="intro-overlay">
     <div class="intro-gate intro-gate-left"></div>
@@ -53,7 +63,10 @@
     <div class="divider" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span></div>
 
     <section id="countdown-section" class="section countdown-section reveal">
-      <p class="label">TO'YIMIZGACHA QOLDI</p>
+      <p class="label">SANA</p>
+      <p class="date-big">11 &middot; 09 &middot; 2026</p>
+      <div class="mini-divider" aria-hidden="true"><span></span><span class="divider-heart">&hearts;</span><span></span></div>
+      <p class="label" style="margin-top: 26px;">TO'YIMIZGACHA QOLGAN VAQT</p>
       <p class="countdown-fallback" id="countdown-fallback">11 sentabr 2026</p>
       <div class="countdown" id="countdown-timer" hidden>
         <div class="countdown-item">
@@ -74,31 +87,17 @@
         </div>
       </div>
       <p class="countdown-message" id="countdown-message" hidden>Baxtli kunimiz keldi! 🎉</p>
-    </section>
 
-    <div class="divider" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span></div>
+      <div class="mini-divider-star" aria-hidden="true">&#10022;</div>
 
-    <section id="program" class="section program-section reveal">
-      <p class="label">KUN TARTIBI</p>
-      <h2 class="section-title">Dastur</h2>
-      <div class="timeline">
-        <div class="timeline-item">
-          <span class="timeline-time">17:00</span>
-          <span class="timeline-event">Nikoh marosimi</span>
+      <div class="calendar-card">
+        <p class="calendar-month" id="calendar-month">SENTYABR 2026</p>
+        <div class="calendar-weekdays">
+          <span>Du</span><span>Se</span><span>Ch</span><span>Pa</span><span>Ju</span><span>Sh</span><span>Ya</span>
         </div>
-        <div class="timeline-item">
-          <span class="timeline-time">18:30</span>
-          <span class="timeline-event">Mehmonlar kutib olinadi</span>
-        </div>
-        <div class="timeline-item">
-          <span class="timeline-time">19:00</span>
-          <span class="timeline-event">Kelin-kuyov kirishi</span>
-        </div>
-        <div class="timeline-item">
-          <span class="timeline-time">20:00</span>
-          <span class="timeline-event">Ziyofat va raqslar</span>
-        </div>
+        <div class="calendar-grid" id="calendar-grid"></div>
       </div>
+      <p class="calendar-time">BOSHLANISHI 19:00 DA</p>
     </section>
 
     <div class="divider" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span></div>
@@ -119,19 +118,6 @@
         </iframe>
       </div>
       <a class="button" href="https://yandex.uz/maps/org/228351531215/gallery/?ll=65.970182%2C40.029042&z=19" target="_blank" rel="noopener">Yo'nalishni ochish</a>
-    </section>
-
-    <div class="divider" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span></div>
-
-    <section id="gallery" class="section gallery-section reveal">
-      <p class="label">XOTIRALAR</p>
-      <h2 class="section-title">Galereya</h2>
-      <div class="gallery-grid">
-        <img class="gallery-image" src="images/gallery-1.svg" alt="Juftlik surati 1" loading="lazy">
-        <img class="gallery-image" src="images/gallery-2.svg" alt="Juftlik surati 2" loading="lazy">
-        <img class="gallery-image" src="images/gallery-3.svg" alt="Juftlik surati 3" loading="lazy">
-        <img class="gallery-image" src="images/gallery-4.svg" alt="Juftlik surati 4" loading="lazy">
-      </div>
     </section>
 
     <div class="divider" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span></div>
