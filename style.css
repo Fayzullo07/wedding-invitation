@@ -760,6 +760,43 @@ body {
   margin-top: 20px;
 }
 
+/* Closing */
+.closing-emblem {
+  font-size: 30px;
+  margin-bottom: 14px;
+}
+
+.closing-message {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 600;
+  font-size: 26px;
+  max-width: 320px;
+  margin-bottom: 20px;
+}
+
+.closing-names {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 600;
+  font-size: 20px;
+  margin-top: 22px;
+}
+
+.closing-names .amp {
+  color: var(--gold);
+  margin: 0 6px;
+}
+
+.closing-date {
+  margin-top: 8px;
+  font-family: var(--font-body);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 2px;
+  opacity: 0.6;
+}
+
 /* Intro / opening gate */
 body.intro-locked {
   overflow: hidden;

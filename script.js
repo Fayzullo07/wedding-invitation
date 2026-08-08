@@ -71,8 +71,8 @@
 })();
 
 (function () {
-  var TELEGRAM_BOT_TOKEN = 'YOUR_BOT_TOKEN_HERE';
-  var TELEGRAM_CHAT_ID = 'YOUR_CHAT_ID_HERE';
+  var TELEGRAM_BOT_TOKEN = '8668532128:AAHLseefkFeI3l9UKNRgD6MH3s9cwVYgDg8';
+  var TELEGRAM_CHAT_ID = '-1004324183848';
 
   var form = document.getElementById('rsvp-form');
   var attendButtons = form.querySelectorAll('.attend-btn');
