@@ -97,6 +97,12 @@
       lines.push('💬 <b>Xabar:</b> ' + escapeHtml(data.message));
     }
 
+    var now = new Date();
+    var dateStr = now.toLocaleDateString('uz-UZ', { day: '2-digit', month: '2-digit', year: 'numeric' });
+    var timeStr = now.toLocaleTimeString('uz-UZ', { hour: '2-digit', minute: '2-digit' });
+    lines.push('');
+    lines.push('🗓 ' + dateStr + ' · ' + timeStr);
+
     var url = 'https://api.telegram.org/bot' + TELEGRAM_BOT_TOKEN + '/sendMessage';
     return fetch(url, {
       method: 'POST',
