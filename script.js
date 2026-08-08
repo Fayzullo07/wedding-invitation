@@ -71,6 +71,81 @@
 })();
 
 (function () {
+  var TELEGRAM_BOT_TOKEN = 'YOUR_BOT_TOKEN_HERE';
+  var TELEGRAM_CHAT_ID = 'YOUR_CHAT_ID_HERE';
+
+  var form = document.getElementById('rsvp-form');
+  var attendButtons = form.querySelectorAll('.attend-btn');
+  var guestsField = document.getElementById('rsvp-guests-field');
+  var attending = 'yes';
+
+  attendButtons.forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      attendButtons.forEach(function (b) {
+        b.classList.remove('selected');
+      });
+      btn.classList.add('selected');
+      attending = btn.dataset.value;
+      guestsField.hidden = attending !== 'yes';
+    });
+  });
+
+  function escapeHtml(str) {
+    return str
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;');
+  }
+
+  function sendRsvpToTelegram(data) {
+    if (!TELEGRAM_BOT_TOKEN || TELEGRAM_BOT_TOKEN === 'YOUR_BOT_TOKEN_HERE') {
+      return Promise.resolve();
+    }
+
+    var attendingYes = data.attending === 'yes';
+    var lines = [
+      attendingYes ? '🎉 <b>Yangi mehmon tasdiqladi!</b>' : '💌 <b>Yangi javob keldi</b>',
+      '',
+      '👤 <b>Ism:</b> ' + escapeHtml(data.name),
+      (attendingYes ? '✅' : '❌') + ' <b>Keladimi:</b> ' + (attendingYes ? 'Ha, albatta' : "Afsuski, yo'q")
+    ];
+    if (attendingYes) {
+      lines.push('👥 <b>Mehmonlar soni:</b> ' + escapeHtml(data.guests));
+    }
+    if (data.message) {
+      lines.push('💬 <b>Xabar:</b> ' + escapeHtml(data.message));
+    }
+
+    var url = 'https://api.telegram.org/bot' + TELEGRAM_BOT_TOKEN + '/sendMessage';
+    return fetch(url, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ chat_id: TELEGRAM_CHAT_ID, text: lines.join('\n'), parse_mode: 'HTML' })
+    }).catch(function (err) {
+      console.error('Telegramga yuborishda xatolik:', err);
+    });
+  }
+
+  form.addEventListener('submit', function (event) {
+    event.preventDefault();
+    var submitBtn = form.querySelector('.rsvp-submit');
+    var data = {
+      name: document.getElementById('rsvp-name').value.trim(),
+      attending: attending,
+      guests: document.getElementById('rsvp-guests').value,
+      message: document.getElementById('rsvp-message').value.trim()
+    };
+
+    submitBtn.disabled = true;
+
+    sendRsvpToTelegram(data).finally(function () {
+      form.hidden = true;
+      document.getElementById('rsvp-thanks').classList.add('show');
+    });
+  });
+})();
+
+(function () {
   function tryPhotoBackground(sectionId, filename) {
     var img = new Image();
     img.onload = function () {

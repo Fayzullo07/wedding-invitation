@@ -7,7 +7,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500;1,600&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css?v=8">
+  <link rel="stylesheet" href="style.css?v=9">
 </head>
 <body>
   <audio id="bg-music" loop>
@@ -144,6 +144,46 @@
 
     <div class="divider" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span></div>
 
+    <section id="rsvp" class="section rsvp-section reveal">
+      <p class="label">RSVP</p>
+      <h2 class="section-title">Kelishingizni tasdiqlang</h2>
+      <p class="rsvp-text">Ushbu maxsus kunda yoningizda bo'lish-bo'lmasligingizni bizga bildirib qo'ysangiz, juda minnatdor bo'lardik.</p>
+
+      <form class="rsvp-form" id="rsvp-form">
+        <div class="field">
+          <label for="rsvp-name">Ismingiz</label>
+          <input type="text" id="rsvp-name" name="name" autocomplete="name" required>
+        </div>
+
+        <div class="field">
+          <label>Kelasizmi?</label>
+          <div class="attend-toggle">
+            <button type="button" class="attend-btn selected" data-value="yes">Ha, albatta</button>
+            <button type="button" class="attend-btn" data-value="no">Afsuski, yo'q</button>
+          </div>
+        </div>
+
+        <div class="field" id="rsvp-guests-field">
+          <label for="rsvp-guests">Nechta kishi bo'lasiz?</label>
+          <input type="number" id="rsvp-guests" name="guests" min="1" max="10" value="1">
+        </div>
+
+        <div class="field">
+          <label for="rsvp-message">Tilagingiz (ixtiyoriy)</label>
+          <textarea id="rsvp-message" name="message" rows="3"></textarea>
+        </div>
+
+        <button type="submit" class="button rsvp-submit">Yuborish</button>
+      </form>
+
+      <div class="rsvp-thanks" id="rsvp-thanks">
+        <p class="rsvp-thanks-title">Rahmat!</p>
+        <p class="rsvp-thanks-message">Javobingiz qabul qilindi. Sizni ushbu kunda ko'rishni intiqlik bilan kutamiz!</p>
+      </div>
+    </section>
+
+    <div class="divider" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span></div>
+
     <section id="gift" class="section gift-section reveal">
       <p class="label">SOVG'A</p>
       <h2 class="section-title">Sovg'a</h2>
@@ -156,6 +196,6 @@
       <p class="gift-note">Duo va tilaklaringiz &mdash; biz uchun eng qimmatli sovg'a.</p>
     </section>
   </main>
-  <script src="script.js?v=8"></script>
+  <script src="script.js?v=9"></script>
 </body>
 </html>
