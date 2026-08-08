@@ -752,6 +752,10 @@ body {
   margin-top: 18px;
 }
 
+.gift-telegram-button {
+  margin-top: 22px;
+}
+
 .gift-note {
   font-family: var(--font-display);
   font-style: italic;
