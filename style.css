@@ -282,6 +282,40 @@ body {
   50%      { transform: translateY(4px); }
 }
 
+/* Poem */
+.poem-quote {
+  font-family: var(--font-display);
+  font-size: 40px;
+  color: var(--gold);
+  opacity: 0.7;
+  line-height: 1;
+  margin-bottom: 6px;
+}
+
+.poem-text {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 500;
+  font-size: 21px;
+  line-height: 1.65;
+  max-width: 320px;
+  margin: 4px 0 22px;
+}
+
+.poem-signature {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 600;
+  font-size: 18px;
+  margin-top: 22px;
+  letter-spacing: 0.5px;
+}
+
+.poem-signature .amp {
+  color: var(--gold);
+  margin: 0 6px;
+}
+
 /* Countdown */
 .countdown {
   display: flex;
