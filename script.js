@@ -52,25 +52,6 @@
 })();
 
 (function () {
-  var copyButton = document.getElementById('gift-copy-button');
-  var cardNumber = document.getElementById('gift-card-number');
-  var originalLabel = copyButton.textContent;
-
-  copyButton.addEventListener('click', function () {
-    var text = cardNumber.textContent.trim();
-
-    if (navigator.clipboard && navigator.clipboard.writeText) {
-      navigator.clipboard.writeText(text).then(function () {
-        copyButton.textContent = 'Nusxalandi!';
-        setTimeout(function () {
-          copyButton.textContent = originalLabel;
-        }, 2000);
-      });
-    }
-  });
-})();
-
-(function () {
   var TELEGRAM_BOT_TOKEN = '8668532128:AAHLseefkFeI3l9UKNRgD6MH3s9cwVYgDg8';
   var TELEGRAM_CHAT_ID = '-1004324183848';
 
